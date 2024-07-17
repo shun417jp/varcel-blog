@@ -15,28 +15,22 @@ const DetailPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // クエリパラメータを取得する
     const slug = router.query.slug;
-    // console.log(slug, typeof slug, typeof slug === "string");
-    // クエリパラメーターにslugが存在する時にblogIdの状態を更新する
     if (typeof slug === "string") {
       setBlogId(slug);
     }
   }, [router.query]);
 
   useEffect(() => {
-    // blogIdが空白の時には何もしない
     if (blogId === "") {
       return;
     }
     const fetchPost = async () => {
-      // 記事データを取得する
       const data = await selectPost(blogId);
-      // 記事データが取得できない時は処理を終了する
       if (!data) {
         return;
       }
-      // blogIdが存在する時にはpostの状態を更新する
+
       setPost(data);
     };
     fetchPost();
