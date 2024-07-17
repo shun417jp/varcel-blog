@@ -35,7 +35,6 @@ const DetailPage = () => {
     };
     fetchPost();
   }, [blogId]);
-  // ↑↑修正↑↑
 
   return (
     <Layout>
