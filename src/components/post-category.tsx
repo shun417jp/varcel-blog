@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { FolderOpen } from "lucide-react";
 import { Category } from "@/types/blog";
 import Link from "next/link";
-import { selectCategories } from "@/utils/supabase";
+import { selectCategories } from "@/utitls/supabase";
 
 const PostCategory: FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);

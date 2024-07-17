@@ -3,33 +3,11 @@ import Layout from "@/components/layout";
 import Pagenation from "@/components/pagenation";
 import PostCategory from "@/components/post-category";
 import PostHeader from "@/components/post-header";
-import TwoColumnLayout from "@/components/TwoColumnLayout";
+import TwoColumnLayout from "@/components/two-calumn-layout";
 import { Post } from "@/types/blog";
 import { selectPost } from "@/utitls/supabase";
 import { useRouter } from "next/router";
-import {
-  Children,
-  ClassAttributes,
-  HTMLAttributes,
-  useEffect,
-  useState,
-} from "react";
-import ReactMarkdown, { ExtraProps } from "react-markdown";
-import remarkGfm from "remark-gfm";
-
-type HeadingProps = ClassAttributes<HTMLHeadElement> &
-  HTMLAttributes<HTMLHeadElement> &
-  ExtraProps;
-const H1 = ({ Children }: HeadingProps) => {
-  return <h1 className="text-3xl border-l-2 m-l-2"></h1>;
-};
-
-type ParagraphProps = ClassAttributes<HTMLParagraphElement> &
-  HTMLAttributes<HTMLParamElement> &
-  ExtraProps;
-const P = ({ Children }: ParagraphProps) => {
-  return <p className="text-base">{Children}</p>;
-};
+import { useEffect, useState } from "react";
 
 const DetailPage = () => {
   const [post, setPost] = useState<Post>();
@@ -84,12 +62,7 @@ const DetailPage = () => {
 
       <TwoColumnLayout>
         <div className="flex flex-col flex-1 text-base leading-8">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{ h1: H1, p: P }}
-          >
-            {post && post.body}
-          </ReactMarkdown>
+          {post && <PostHeader post={post} />}
         </div>
         <PostCategory />
       </TwoColumnLayout>
