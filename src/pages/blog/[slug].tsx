@@ -45,7 +45,7 @@ const DetailPage = () => {
 
       {post ? (
         <Eyecatch
-          src={`https://puvgtufvrywnimyrntkc.supabase.co/storage/v1/object/public/public-image-bucket/${post.eyecatch}`}
+          src={`https://ejubpcdhecomjjdnnkwp.supabase.co/storage/v1/object/public/thumbnails/${post.eyecatch}`}
           width={568}
           height={288}
         />
